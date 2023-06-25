@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::post('/register', [UserApiController::class, 'register']);
 Route::post('/login', [UserApiController::class, 'login']);
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+// Protect routes
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/user', [UserApiController::class, 'show']);
 });
