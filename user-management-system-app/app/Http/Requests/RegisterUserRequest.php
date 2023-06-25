@@ -24,7 +24,7 @@ class RegisterUserRequest extends FormRequest
     {
         return [
             'username' => 'required|unique:users',
-            'phone' => 'required|unique:users',
+            'phone' => 'required|unique:users|min:10|max:15',
             'password' => 'required|min:8',
             'terms_accepted' => ['required', 'boolean', Rule::in([true])],
         ];
