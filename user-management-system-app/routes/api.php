@@ -21,4 +21,5 @@ Route::post('/login', [UserApiController::class, 'login']);
 // Protect routes
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', [UserApiController::class, 'show']);
+    Route::put('/user', [UserApiController::class, 'update']);
 });

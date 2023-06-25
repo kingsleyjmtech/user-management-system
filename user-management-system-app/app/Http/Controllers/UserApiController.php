@@ -52,4 +52,13 @@ class UserApiController extends Controller
             return response()->json(['message' => 'Unauthenticated'], 401);
         }
     }
+
+    public function update(UpdateUserRequest $request)
+    {
+        $user = $request->user();
+
+        $user->update($request->validated());
+
+        return response()->json($user);
+    }
 }
