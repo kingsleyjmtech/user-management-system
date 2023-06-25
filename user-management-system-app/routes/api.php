@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OrganisationApiController;
 use App\Http\Controllers\UserApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -22,4 +23,6 @@ Route::post('/login', [UserApiController::class, 'login']);
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', [UserApiController::class, 'show']);
     Route::put('/user', [UserApiController::class, 'update']);
+
+    Route::post('/organisations', [OrganisationApiController::class, 'store']);
 });
