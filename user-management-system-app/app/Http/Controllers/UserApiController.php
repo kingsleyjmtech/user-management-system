@@ -18,6 +18,7 @@ class UserApiController extends Controller
             'username' => $request->username,
             'phone' => $request->phone,
             'password' => Hash::make($request->password),
+            'terms_accepted' => $request->terms_accepted,
         ]);
 
         return response()->json($user, 201);
